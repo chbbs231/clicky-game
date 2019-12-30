@@ -1,24 +1,28 @@
 import React from 'react'
+import GridListCard from '../GridListCard/GridListCard'
+
 
 class GridList extends React.Component {
 
   state = {
     cards: [
-      { picture: '1.png', clicked: false },
-      { picture: '2.png', clicked: false },
-      { picture: '3.png', clicked: false },
-      { picture: '4.png', clicked: false },
-      { picture: '5.png', clicked: false },
-      { picture: '6.png', clicked: false },
-      { picture: '7.png', clicked: false },
-      { picture: '8.png', clicked: false },
-      { picture: '9.png', clicked: false },
-      { picture: '10.png', clicked: false },
+      { image: './assets/images/1.png', clicked: false },
+      { image: './assets/images/2.png', clicked: false },
+      { image: './assets/images/3.png', clicked: false },
+      { image: './assets/images/4.png', clicked: false },
+      { image: './assets/images/5.png', clicked: false },
+      { image: './assets/images/6.png', clicked: false },
+      { image: './assets/images/7.png', clicked: false },
+      { image: './assets/images/8.png', clicked: false },
+      { image: './assets/images/9.png', clicked: false },
+      { image: './assets/images/10.png', clicked: false },
+      { image: './assets/images/11.png', clicked: false },
+      { image: './assets/images/12.png', clicked: false },
     ]
   }
 
   shuffleCards() {
-    let [...tempArr] = cards,
+    let [...tempArr] = this.state.cards,
       currentIndex = tempArr.length,
       tempValue,
       randomIndex
@@ -36,16 +40,29 @@ class GridList extends React.Component {
 
   }
 
-  handleCardClick() {
-    this.shuffleCards()
+  handleCardClick(event, index) {
+    console.log(`Card ${index + 1} has been clicked!`)
+    if (this.state.cards[index].clicked) {
+      console.log('Already clicked!')
+    } else {
+      console.log('Changing state!')
+      let [...tempArr] = this.state.cards
+      tempArr[index].clicked = true
+      this.setState({ cards: tempArr })
+    }
   }
 
   render () {
     return (
-      <div>
-        {cards.map(elem => {
+      <div className="row">
+        {this.state.cards.map((card, index) => {
           return (
-            
+            <GridListCard 
+              key={index} 
+              image={card.image} 
+              clicked={card.clicked} 
+              handleCardClick={event => this.handleCardClick(event, index)} 
+            />
           )
         })}
       </div>
@@ -53,3 +70,5 @@ class GridList extends React.Component {
   }
 
 }
+
+export default GridList
