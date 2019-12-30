@@ -40,8 +40,8 @@ class GridList extends React.Component {
 
   }
 
-  handleCardClick(event, index) {
-    console.log(`Card ${index + 1} has been clicked!`)
+  handleCardClick(event, index, image) {
+    console.log(`Card ${image} has been clicked!`)
     if (this.state.cards[index].clicked) {
       console.log('Already clicked!')
     } else {
@@ -50,18 +50,19 @@ class GridList extends React.Component {
       tempArr[index].clicked = true
       this.setState({ cards: tempArr })
     }
+    this.shuffleCards()
   }
 
   render () {
     return (
-      <div className="row">
+      <div className="row mb-5">
         {this.state.cards.map((card, index) => {
           return (
             <GridListCard 
               key={index} 
               image={card.image} 
               clicked={card.clicked} 
-              handleCardClick={event => this.handleCardClick(event, index)} 
+              handleCardClick={event => this.handleCardClick(event, index, card.image)} 
             />
           )
         })}
