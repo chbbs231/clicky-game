@@ -1,25 +1,24 @@
 import React from 'react'
 import GridListCard from '../GridListCard/GridListCard'
 
+const cards = [
+  { image: './assets/images/1.png', clicked: false },
+  { image: './assets/images/2.png', clicked: false },
+  { image: './assets/images/3.png', clicked: false },
+  { image: './assets/images/4.png', clicked: false },
+  { image: './assets/images/5.png', clicked: false },
+  { image: './assets/images/6.png', clicked: false },
+  { image: './assets/images/7.png', clicked: false },
+  { image: './assets/images/8.png', clicked: false },
+  { image: './assets/images/9.png', clicked: false },
+  { image: './assets/images/10.png', clicked: false },
+  { image: './assets/images/11.png', clicked: false },
+  { image: './assets/images/12.png', clicked: false },
+]
 
 class GridList extends React.Component {
 
-  state = {
-    cards: [
-      { image: './assets/images/1.png', clicked: false },
-      { image: './assets/images/2.png', clicked: false },
-      { image: './assets/images/3.png', clicked: false },
-      { image: './assets/images/4.png', clicked: false },
-      { image: './assets/images/5.png', clicked: false },
-      { image: './assets/images/6.png', clicked: false },
-      { image: './assets/images/7.png', clicked: false },
-      { image: './assets/images/8.png', clicked: false },
-      { image: './assets/images/9.png', clicked: false },
-      { image: './assets/images/10.png', clicked: false },
-      { image: './assets/images/11.png', clicked: false },
-      { image: './assets/images/12.png', clicked: false },
-    ]
-  }
+  state = { cards }
 
   shuffleCards() {
     let [...tempArr] = this.state.cards,
@@ -43,17 +42,27 @@ class GridList extends React.Component {
   handleCardClick(event, index, image) {
     console.log(`Card ${image} has been clicked!`)
     if (this.state.cards[index].clicked) {
-      console.log('Already clicked!')
+      alert('YOU LOSE!!')
+      this.lose()
     } else {
-      console.log('Changing state!')
       let [...tempArr] = this.state.cards
       tempArr[index].clicked = true
       this.setState({ cards: tempArr })
+      this.props.incrementScore()
+      this.shuffleCards()
     }
-    this.shuffleCards()
   }
 
-  render () {
+  lose() {
+    this.setState({ cards })
+    console.log(this.state.cards)
+  }
+
+  win() {
+
+  }
+
+  render() {
     return (
       <div className="row mb-5">
         {this.state.cards.map((card, index) => {

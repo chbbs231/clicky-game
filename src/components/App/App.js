@@ -7,13 +7,21 @@ import GridList from '../GridList/GridList'
 
 class App extends React.Component {
 
+  state = {
+    score: 0
+  }
+
+  incrementScore() {
+    console.log(this)
+    // this.setState({ score: (this.state.score + 1) })
+  }
 
   render() {
     return (
       <>
-        <NavBar />
+        <NavBar score={this.state.score} />
         <Container>
-          <GridList />
+          <GridList incrementScore={this.incrementScore} />
         </Container>
       </>
     )
