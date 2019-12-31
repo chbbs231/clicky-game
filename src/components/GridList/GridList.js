@@ -43,7 +43,21 @@ class GridList extends React.Component {
     console.log(`Card ${image} has been clicked!`)
     if (this.state.cards[index].clicked) {
       alert('YOU LOSE!!')
-      this.lose()
+      this.setState({ cards: [
+        { image: './assets/images/1.png', clicked: false },
+        { image: './assets/images/2.png', clicked: false },
+        { image: './assets/images/3.png', clicked: false },
+        { image: './assets/images/4.png', clicked: false },
+        { image: './assets/images/5.png', clicked: false },
+        { image: './assets/images/6.png', clicked: false },
+        { image: './assets/images/7.png', clicked: false },
+        { image: './assets/images/8.png', clicked: false },
+        { image: './assets/images/9.png', clicked: false },
+        { image: './assets/images/10.png', clicked: false },
+        { image: './assets/images/11.png', clicked: false },
+        { image: './assets/images/12.png', clicked: false },
+      ]})
+      this.props.resetScore()
     } else {
       let [...tempArr] = this.state.cards
       tempArr[index].clicked = true
@@ -51,15 +65,6 @@ class GridList extends React.Component {
       this.props.incrementScore()
       this.shuffleCards()
     }
-  }
-
-  lose() {
-    this.setState({ cards })
-    console.log(this.state.cards)
-  }
-
-  win() {
-
   }
 
   render() {

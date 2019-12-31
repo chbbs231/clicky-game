@@ -12,8 +12,11 @@ class App extends React.Component {
   }
 
   incrementScore() {
-    console.log(this)
-    // this.setState({ score: (this.state.score + 1) })
+    this.setState({ score: (this.state.score + 1) })
+  }
+
+  resetScore() {
+    this.setState({ score: 0 })
   }
 
   render() {
@@ -21,7 +24,10 @@ class App extends React.Component {
       <>
         <NavBar score={this.state.score} />
         <Container>
-          <GridList incrementScore={this.incrementScore} />
+          <GridList 
+            incrementScore={() => this.incrementScore()} 
+            resetScore={() => this.resetScore()} 
+          />
         </Container>
       </>
     )
