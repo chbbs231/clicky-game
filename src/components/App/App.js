@@ -3,7 +3,7 @@ import './App.css'
 import Container from '../Container/Container'
 import NavBar from '../NavBar/NavBar'
 import GridList from '../GridList/GridList'
-// import { ThemeProvider, AppBar, Container, GridList, GridListTile } from '@material-ui/core'
+import Footer from '../Footer/Footer'
 
 class App extends React.Component {
 
@@ -27,8 +27,10 @@ class App extends React.Component {
           <GridList 
             incrementScore={() => this.incrementScore()} 
             resetScore={() => this.resetScore()} 
+            score={this.state.score}
           />
         </Container>
+        <Footer />
       </>
     )
   }

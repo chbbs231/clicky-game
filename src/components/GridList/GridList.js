@@ -1,4 +1,5 @@
 import React from 'react'
+import swal from 'sweetalert'
 import GridListCard from '../GridListCard/GridListCard'
 
 const cards = [
@@ -42,7 +43,12 @@ class GridList extends React.Component {
   handleCardClick(event, index, image) {
     console.log(`Card ${image} has been clicked!`)
     if (this.state.cards[index].clicked) {
-      alert('YOU LOSE!!')
+      swal({
+        title: 'You Lost!',
+        text: `You scored ${this.props.score} point${this.props.score !== 1 ? 's' : ''}!`,
+        icon: 'error',
+        button: 'Okay'
+      })
       this.setState({ cards: [
         { image: './assets/images/1.png', clicked: false },
         { image: './assets/images/2.png', clicked: false },
@@ -69,7 +75,7 @@ class GridList extends React.Component {
 
   render() {
     return (
-      <div className="row mb-5">
+      <div className="row mb-4">
         {this.state.cards.map((card, index) => {
           return (
             <GridListCard 
