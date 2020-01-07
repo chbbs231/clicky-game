@@ -17,7 +17,7 @@ const Footer = _ => {
           </div>
 
           {/* Github Repo */}
-          <div className="col-md-6 col-lg-6 ml-lg-0">
+          <div className="col-md-6 col-lg-6 ml-lg-0 d-flex ">
             <Button variant="outlined" href="https://github.com/mesmerizingYeti/clicky-game">
               Githup Repo
             </Button>
