@@ -1,5 +1,4 @@
 import React from 'react'
-import './App.css'
 import Container from '../Container/Container'
 import NavBar from '../NavBar/NavBar'
 import GridList from '../GridList/GridList'
