@@ -1,0 +1,17 @@
+import React, { Component } from 'react'
+import { Container, Button } from '@material-ui/core'
+import Jumbotron from 'react-bootstrap/Jumbotron'
+
+class Home extends Component {
+
+  render() {
+    <Container>
+      <Jumbotron>
+        <h1>Hello World</h1>
+      </Jumbotron>
+    </Container>
+  }
+
+}
+
+export default Home
