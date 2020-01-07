@@ -21,31 +21,19 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <div>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path='/game'>
-              <Game />
-            </Route>
-          </Switch>
-          <Footer />
-        </div>
-      </Router>
-    )
-  }
-  
+      <>
+        <NavBar score={this.state.score} />
+        <Container>
+          <GridList
+            incrementScore={() => this.incrementScore()}
+            resetScore={() => this.resetScore()}
+            score={this.state.score}
+          />
+        </Container>
+        <Footer />
+      </>
+  )}
+
 }
-{/*<NavBar score={this.state.score} />
-<Container>
-  <GridList 
-    incrementScore={() => this.incrementScore()} 
-    resetScore={() => this.resetScore()} 
-    score={this.state.score}
-  />
-</Container>
-<Footer />*/}
 
 export default App
