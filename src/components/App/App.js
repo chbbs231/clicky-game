@@ -1,15 +1,9 @@
 import React from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from 'react-router-dom'
-import NavBar from './components/NavBar/NavBar'
-import Footer from './components/Footer/Footer'
-import Home from './pages/Home'
-import Game from './pages/Game'
-import { Container, AppBar } from '@material-ui/core'
-import GridList from './components/GridList/GridList'
+import './App.css'
+import Container from '../Container/Container'
+import NavBar from '../NavBar/NavBar'
+import GridList from '../GridList/GridList'
+import Footer from '../Footer/Footer'
 
 class App extends React.Component {
 
