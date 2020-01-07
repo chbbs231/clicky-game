@@ -5,11 +5,13 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 class Home extends Component {
 
   render() {
-    <Container>
-      <Jumbotron>
-        <h1>Hello World</h1>
-      </Jumbotron>
-    </Container>
+    return (
+      <Container>
+        <Jumbotron>
+          <h1>Hello World</h1>
+        </Jumbotron>
+      </Container>
+    )
   }
 
 }

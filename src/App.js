@@ -1,8 +1,15 @@
 import React from 'react'
-import Container from '../Container/Container'
-import NavBar from '../NavBar/NavBar'
-import GridList from '../GridList/GridList'
-import Footer from '../Footer/Footer'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
+import NavBar from './components/NavBar/NavBar'
+import Footer from './components/Footer/Footer'
+import Home from './pages/Home'
+import Game from './pages/Game'
+import { Container, AppBar } from '@material-ui/core'
+import GridList from './components/GridList/GridList'
 
 class App extends React.Component {
 
@@ -20,20 +27,30 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-        <NavBar score={this.state.score} />
-        <Container>
-          <GridList 
-            incrementScore={() => this.incrementScore()} 
-            resetScore={() => this.resetScore()} 
-            score={this.state.score}
-          />
-        </Container>
-        <Footer />
-      </>
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path='/game'>
+              <Game />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     )
   }
-
+  
 }
+{/*<NavBar score={this.state.score} />
+<Container>
+  <GridList 
+    incrementScore={() => this.incrementScore()} 
+    resetScore={() => this.resetScore()} 
+    score={this.state.score}
+  />
+</Container>
+<Footer />*/}
 
 export default App

@@ -1,6 +1,7 @@
 import React from 'react'
 import './Footer.css'
-import Container from '../Container/Container'
+import Container from '@material-ui/core/Container'
+import Button from '@material-ui/core/Button'
 
 const Footer = _ => {
   return (
@@ -17,9 +18,12 @@ const Footer = _ => {
 
           {/* Github Repo */}
           <div className="col-md-6 col-lg-6 ml-lg-0">
-            <div className="text-center text-md-right py">
+            <Button variant="outlined" href="https://github.com/mesmerizingYeti/clicky-game">
+              Githup Repo
+            </Button>
+            {/* <div className="text-center text-md-right py">
               <a href="https://github.com/mesmerizingYeti/clicky-game">Githup Repo</a>
-            </div>
+            </div> */}
           </div>
         </div>
       </Container>
