@@ -8,7 +8,8 @@ import Footer from '../Footer/Footer'
 class App extends React.Component {
 
   state = {
-    score: 0
+    score: 0,
+    topScore: 0
   }
 
   incrementScore() {
@@ -19,14 +20,21 @@ class App extends React.Component {
     this.setState({ score: 0 })
   }
 
+  updateTopScore() {
+    if (this.state.topScore < this.state.score) {
+      this.setState({ topScore: this.state.score })
+    }
+  }
+
   render() {
     return (
       <>
-        <NavBar score={this.state.score} />
+        <NavBar score={this.state.score} topScore={this.state.topScore} />
         <Container>
           <GridList
             incrementScore={() => this.incrementScore()}
             resetScore={() => this.resetScore()}
+            updateTopScore={() => this.updateTopScore()}
             score={this.state.score}
           />
         </Container>
